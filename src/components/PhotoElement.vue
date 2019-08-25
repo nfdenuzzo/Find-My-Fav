@@ -16,7 +16,7 @@
         >
           <v-expand-transition>
             <div
-              v-if="hover"
+              v-if="hover || $breakpoint.smAndDown"
               class="d-flex transition-fast-in-fast-out v-card--reveal black--text"
               style="height: 100%;"
             >
@@ -83,12 +83,14 @@
 import "@/assets/css/v-tooltip.css";
 import ImageViewPopup from "./ImageViewPopup";
 import ImageUserInfo from "./ImageUserInfo";
+import BreakPointMixin from "@/mixins/BreakPointMixin";
 export default {
   name: "PhotoElement",
   components: {
     ImageViewPopup,
     ImageUserInfo
   },
+  mixins: [BreakPointMixin],
   props: {
     photo: {
       type: Object,

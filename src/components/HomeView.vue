@@ -67,12 +67,13 @@ export default {
         .then(res => {
           this.getPaginationData(res);
           this.$store.commit("setPhotos", res.data);
-          this.dataLoading = false;
         })
         .catch(err => {
           console.log(err);
           this.$store.commit("resetPager");
           this.$router.back();
+        })
+        .finally(() => {
           this.dataLoading = false;
         });
     },
@@ -87,12 +88,13 @@ export default {
         .then(res => {
           this.getPaginationData(res);
           this.$store.commit("setPhotos", res.data.results);
-          this.dataLoading = false;
         })
         .catch(err => {
           console.log(err);
           this.$store.commit("resetPager");
           this.$router.back();
+        })
+        .finally(() => {
           this.dataLoading = false;
         });
     }

@@ -8,7 +8,11 @@ window.axios = axios;
 
 axios.interceptors.request.use(
   function(config) {
-    config.headers.common["X-Requested-With"] = "XMLHttpRequest";
+    let token = localStorage.getItem("client_id");
+    // let token = localStorage.getItem('accessIR')
+    if (token) {
+      config.headers.common["Authorization"] = "Client-ID " + token;
+    }
     return config;
   },
   function(error) {
