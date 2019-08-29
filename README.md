@@ -148,11 +148,13 @@ modularity, performance, & extras.
 [material-icons](https://material.io)
 -Both are requirements for vuetify framework - to display optimally
 
-### native-toast
+### izitoast
 
-[native-toast](https://github.com/egoist/native-toast#readme)
-Native-like toast notification but for the web, i enjoy the customizability of it as well as the look of it
-its usually my go to package for toast notifications
+[izitoast](http://izitoast.marcelodolza.com/#)
+Elegant, responsive, flexible and lightweight notification plugin with no dependencies.
+I enjoy the customizability of it as well as the look of it, its usually my go to package for toast notifications
+-There is a known error with izitoast it throws an error "cannot set property 'time' of undefined"
+that displays in console but it does not break functionality - so i still use it
 
 ### roboto-fontface
 
@@ -186,10 +188,10 @@ Persist and rehydrate your Vuex state between page reloads.
 
 [vuex](https://vuex.vuejs.org)
 Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application
+
 - This is a must with any vuejs application if you looking to to store data centrally and be able to access it anywhere in the application
 
 ### animate.css
 
 [animate.css](https://daneden.github.io/animate.css/)
 Animate.css is a light weight css animation pack - Simple and effective with wide selection of animations to use
-

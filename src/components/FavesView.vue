@@ -7,7 +7,7 @@
 <script>
 import PhotoList from "./PhotoList";
 export default {
-  name: "PhotoViewFaves",
+  name: "FavesView",
   components: {
     PhotoList: () => import("./PhotoList")
   },

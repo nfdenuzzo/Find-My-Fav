@@ -5,7 +5,7 @@
           <label class="mt-2 ml-3"> <span class="font-weight-bold">{{ user.name }}</span> <br> Photos: <span class="font-weight-bold">{{user.total_photos}} </span>
           &nbsp Collections:
           <span class="font-weight-bold">{{user.total_collections}}</span>
-           </label>
+          </label>
         </v-layout>
     </div>
 </template>

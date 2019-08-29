@@ -49,7 +49,7 @@
           <v-btn
             @click="$router.back();"
             v-if="
-            $route.path !== '/auth' &&
+            $route.path !== '/AuthView' &&
               $store.getters.getLoggedIn &&
               $route.path !== '/'
           "
@@ -97,7 +97,7 @@ export default {
         {
           title: "Login",
           icon: "lock_open",
-          link: "/Auth"
+          link: "/AuthView"
         }
       ];
       if (this.$store.getters.getLoggedIn) {
@@ -113,8 +113,8 @@ export default {
     }
   },
   mounted() {
-    if (!this.$store.getters.getLoggedIn && this.$route.path !== "/auth") {
-      this.$router.push("/auth").catch(err => {
+    if (!this.$store.getters.getLoggedIn && this.$route.path !== "/AuthView") {
+      this.$router.push("/AuthView").catch(err => {
         console.log(err);
       });
     }
@@ -150,5 +150,9 @@ export default {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #00137f;
+}
+
+.v-btn--floating .v-icon {
+  height: auto !important;
 }
 </style>

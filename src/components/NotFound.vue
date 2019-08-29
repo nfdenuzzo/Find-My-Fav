@@ -27,7 +27,7 @@
         </p>
         <v-layout row justify-center>
           <v-flex xs6 sm4>
-            <v-btn @click.native="Clicked_Go_Home()" round block dark color="#00137f">BACK TO HOME</v-btn>
+            <v-btn @click.native="ClickedGoHome()" round block dark color="#00137f">BACK TO HOME</v-btn>
           </v-flex>
         </v-layout>
       </div>
@@ -37,17 +37,6 @@
 
 <script>
 export default {
-  metaInfo: {
-    // Children can override the title.
-    title: "Black Circles",
-    meta: [
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        name: "description",
-        content: "Black Circles, not found page"
-      }
-    ]
-  },
   data() {
     return {
       images: {
@@ -58,7 +47,7 @@ export default {
   computed: {},
   mounted() {},
   methods: {
-    Clicked_Go_Home() {
+    ClickedGoHome() {
       this.$router.push("/");
     }
   }

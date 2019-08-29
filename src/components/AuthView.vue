@@ -8,23 +8,26 @@
       <v-spacer></v-spacer>
     </v-toolbar>
     <v-card-text>
+    <v-form ref="SignInForm" v-model="validCreate" lazy-validation >
       <v-layout>
-        <v-flex xs12 xs12>
           <v-text-field
             ref="ClientId"
             v-model="client_id"
             label="Client ID:"
             outline
+            required
+            :rules="SignInFormRules"
+            @keyup.enter="SignIn()"
           ></v-text-field>
-        </v-flex>
       </v-layout>
+        </v-form>
     </v-card-text>
     <v-card-actions>
       <v-btn @click.native="onReset()" round color="red" class="white--text"
         >Reset</v-btn
       >
       <v-spacer></v-spacer>
-      <v-btn @click.native="onSubmit()" round color="green" class="white--text"
+      <v-btn @click.native="SignIn()" round color="green" class="white--text" :loading="loginButtonLoading"
         >Submit</v-btn
       >
     </v-card-actions>
@@ -34,27 +37,31 @@
 <script>
 import PhotoElement from "./PhotoElement";
 import LogoutMixin from "@/mixins/LogoutMixin";
+import ValidAuthMethodsMixin from "@/mixins/ValidAuthMethodsMixin";
 export default {
   name: "AuthView",
-  mixins: [LogoutMixin],
+  mixins: [LogoutMixin, ValidAuthMethodsMixin],
   data() {
     return {
-      client_id: null
+      client_id: null,
+      loginButtonLoading: false,
+      validCreate: true,
+      SignInFormRules: [
+        v => !!v || "Client Id is required!",
+        v => /\S/.test(v) || "Client Id is required!"
+      ]
     };
   },
   mounted() {
     this.$refs.ClientId.focus();
     // if the user  returns to the auth screen we can then log them out - this is optional of course but i think its a good thing
-    this.Logout();
   },
   methods: {
-    onSubmit() {
-      localStorage.setItem("client_id", this.client_id);
-      this.$root.client_id = this.client_id;
-      this.$store.commit("setLoggedIn", true);
-      this.$router.push("/").catch(err => {
-        console.log(err);
-      });
+    SignIn() {
+      if (this.$refs.SignInForm.validate()) {
+        this.loginButtonLoading = true;
+        this.TestValidAuth();
+      }
     },
     onReset() {
       this.client_id = null;

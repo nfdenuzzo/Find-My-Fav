@@ -7,9 +7,11 @@ import "material-design-icons/iconfont/material-icons.css";
 import "roboto-fontface/css/roboto/roboto-fontface.css";
 import "font-awesome/css/font-awesome.min.css";
 import { store } from "../src/store";
-import router from "./router/";
+import router from "../src/router";
 import { VTooltip, VPopover, VClosePopover } from "v-tooltip";
-import "./http/";
+import "./http/PhotoService.js";
+import "./http/index.js";
+import "./http/UserService.js";
 import "./plugins/element.js";
 import "animate.css";
 

@@ -22,7 +22,7 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new HtmlWebpackPlugin({
-        title: "Black Circles",
+        title: "Yellow Banjo",
         filename: "public/index.html"
       }),
       new PreloadWebpackPlugin({
