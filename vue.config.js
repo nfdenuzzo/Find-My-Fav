@@ -12,7 +12,7 @@ module.exports = {
   // https://forum.vuejs.org/t/cli3-assetspublicpath-equivalent/35008
   publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
   // // where to output built files
-  // outputDir: "dist",
+  outputDir: "docs",
 
   // // where to put static assets (js/css/img/font/...)
   // assetsDir: ".static/",
